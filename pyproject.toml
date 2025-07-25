@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "scribe-to-notion"
+version = "0.1.0"
+description = "Import Amazon Scribe notes to Notion database"
+authors = ["Yann CARDAILLAC"]
+readme = "README.md"
+packages = [{include = "scribe_to_notion"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
