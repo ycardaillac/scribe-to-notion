@@ -1,0 +1,8 @@
+"""Configuration template for integration tests.
+
+Copy this file to tests/integration/config.py and fill in your actual values.
+"""
+
+# Notion API configuration
+NOTION_API_TOKEN = "your_notion_api_token_here"
+PARENT_PAGE_ID = "your_parent_page_id_here" 

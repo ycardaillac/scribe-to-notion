@@ -134,4 +134,7 @@ poetry.lock
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Integration test configuration (contains sensitive data)
+tests/integration/config.py 

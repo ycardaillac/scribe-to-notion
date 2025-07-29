@@ -8,6 +8,7 @@ packages = [{include = "scribe_to_notion"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+notion-client = "^2.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,3 +17,6 @@ pytest = "^8.4.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit"]
