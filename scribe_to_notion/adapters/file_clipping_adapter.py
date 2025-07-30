@@ -1,28 +1,29 @@
-"""Parser for Amazon Scribe/Kindle clippings."""
+"""File-based clipping adapter implementation."""
 
 import re
 from pathlib import Path
 from typing import List, Optional
 
-from .models import Clipping
+from ..core.interfaces import ClippingRepository
+from ..core.models import Clipping
 
 
-class ClippingParser:
-    """Parser for Amazon Scribe/Kindle clippings file."""
+class FileClippingAdapter(ClippingRepository):
+    """File-based implementation of ClippingRepository."""
 
-    def parse_file(self, file_path: str) -> List[Clipping]:
-        """Parse a clippings file and return a list of Clipping objects."""
-        path = Path(file_path)
+    def get_clippings(self, source: str) -> List[Clipping]:
+        """Get clippings from a file."""
+        path = Path(source)
 
         if not path.exists():
-            raise FileNotFoundError(f"File not found: {file_path}")
+            raise FileNotFoundError(f"File not found: {source}")
 
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        return self.parse_content(content)
+        return self._parse_content(content)
 
-    def parse_content(self, content: str) -> List[Clipping]:
+    def _parse_content(self, content: str) -> List[Clipping]:
         """Parse clippings from a string content."""
         # Split by the separator
         clipping_blocks = content.split("==========")

@@ -20,7 +20,7 @@ class Clipping:
         """Clean up the data after initialization."""
         # Remove BOM characters and strip whitespace
         self.book_title = self.book_title.strip().replace("\ufeff", "")
-        self.content = self.content.strip()
+        self.content = self.content.strip().replace("\ufeff", "")
 
         # Clean up optional fields
         if self.author:
