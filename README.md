@@ -100,7 +100,6 @@ Integration tests require a Notion API token and parent page ID. To set them up:
 
 **Note**: The `config.py` file is ignored by Git to keep your API token secure.
 
-```
 
 ### Project Structure
 
@@ -162,3 +161,5 @@ This project follows **Clean Architecture** principles:
 ## License
 
 This project is licensed under the MIT License.
+
+See LICENSE.MIT
