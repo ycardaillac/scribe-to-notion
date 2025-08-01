@@ -10,9 +10,12 @@ packages = [{include = "scribe_to_notion"}]
 python = "^3.10"
 notion-client = "^2.4.0"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+
+[tool.poetry.scripts]
+scribe-to-notion = "scribe_to_notion.cli.main:main"
 
 [build-system]
 requires = ["poetry-core"]
@@ -20,3 +23,30 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 testpaths = ["tests/unit"]
+addopts = "--cov=scribe_to_notion --cov-report=term-missing --cov-report=html"
+
+[tool.coverage.run]
+source = ["scribe_to_notion"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+    "*/venv/*",
+    "*/.venv/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
